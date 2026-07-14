@@ -10,18 +10,19 @@ def build_search_requests(core, service_name, meta):
 
     lang_ids = core.utils.get_lang_ids(meta.languages, core.kodi.xbmc.ISO_639_1)
     params = {
-        'api_key': apikey,
         'languages': ','.join(lang_ids),
         'type': 'movie' if not meta.is_tvshow else 'tv',
-        'subs_per_page': 30
+    }
+    headers = {
+        "Authorization": f"Bearer {apikey}"
     }
 
     if meta.is_tvshow:
         params.update({
             'film_name': meta.tvshow,
             'file_name': meta.filename_without_ext,
-            'season_number': meta.season,
-            'episode_number': meta.episode,
+            'season': meta.season,
+            'episode': meta.episode,
         })
 
         if meta.tvshow_year_thread:
@@ -36,8 +37,9 @@ def build_search_requests(core, service_name, meta):
 
     request = {
         'method': 'GET',
-        'url': 'https://api.subdl.com/api/v1/subtitles',
+        'url': 'https://api.subdl.com/api/v2/subtitles/search',
         'params': params,
+        'headers': headers
     }
 
     return [request]
@@ -85,7 +87,8 @@ def parse_search_response(core, service_name, meta, response):
 def build_download_request(core, service_name, args):
     request = {
         'method': 'GET',
-        'url': 'https://dl.subdl.com' + args['url']
+        'url': 'https://dl.subdl.com' + args['url'],
+        'stream': True
     }
 
     core.logger.debug('%s - Downloading %s' % (service_name, args['filename']))

@@ -11,6 +11,7 @@ def __download(core, filepath, request):
 
     with response as r:
         with open(filepath, 'wb') as f:
+            r.raw.decode_content = True
             core.shutil.copyfileobj(r.raw, f)
 
 def __extract_gzip(core, archivepath, filename):
