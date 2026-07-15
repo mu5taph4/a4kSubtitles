@@ -571,125 +571,125 @@ def test_podnadpisi_tvshow_missing_imdb_id_but_in_url_with_show_id_and_meta_for_
         else:
             raise AssertionError('Expected results from podnadpisi')
 
-# def test_subdl():
-#     a4ksubtitles_api = api.A4kSubtitlesApi({'kodi': True})
-#     __remove_all_cache(a4ksubtitles_api)
+def test_subdl():
+    a4ksubtitles_api = api.A4kSubtitlesApi({'kodi': True})
+    __remove_all_cache(a4ksubtitles_api)
 
-#     # search
-#     settings = {
-#         'subdl.enabled': 'true',
-#         'subdl.apikey': os.getenv('A4KSUBTITLES_SUBDL_APIKEY', ''),
-#     }
-#     search = __search_movie(a4ksubtitles_api, settings)
+    # search
+    settings = {
+        'subdl.enabled': 'true',
+        'subdl.apikey': os.getenv('A4KSUBTITLES_SUBDL_APIKEY', ''),
+    }
+    search = __search_movie(a4ksubtitles_api, settings)
 
-#     # download
-#     item = search.results[0]
+    # download
+    item = search.results[0]
 
-#     params = {
-#         'action': 'download',
-#         'service_name': 'subdl',
-#         'action_args': item['action_args']
-#     }
+    params = {
+        'action': 'download',
+        'service_name': 'subdl',
+        'action_args': item['action_args']
+    }
 
-#     if os.getenv('CI', None) is not None:
-#         time.sleep(4)
+    if os.getenv('CI', None) is not None:
+        time.sleep(4)
 
-#     filepath = a4ksubtitles_api.download(params, search.settings)
+    filepath = a4ksubtitles_api.download(params, search.settings)
 
-#     assert filepath != ''
+    assert filepath != ''
 
-# def test_subdl_tvshow():
-#     a4ksubtitles_api = api.A4kSubtitlesApi({'kodi': True})
-#     __remove_all_cache(a4ksubtitles_api)
+def test_subdl_tvshow():
+    a4ksubtitles_api = api.A4kSubtitlesApi({'kodi': True})
+    __remove_all_cache(a4ksubtitles_api)
 
-#     # search
-#     settings = {
-#         'subdl.enabled': 'true',
-#         'subdl.apikey': os.getenv('A4KSUBTITLES_SUBDL_APIKEY', ''),
-#     }
+    # search
+    settings = {
+        'subdl.enabled': 'true',
+        'subdl.apikey': os.getenv('A4KSUBTITLES_SUBDL_APIKEY', ''),
+    }
 
-#     if os.getenv('CI', None) is not None:
-#         time.sleep(4)
+    if os.getenv('CI', None) is not None:
+        time.sleep(4)
 
-#     search = __search_tvshow(a4ksubtitles_api, settings)
+    search = __search_tvshow(a4ksubtitles_api, settings)
 
-#     # download
-#     item = search.results[0]
+    # download
+    item = search.results[0]
 
-#     params = {
-#         'action': 'download',
-#         'service_name': 'subdl',
-#         'action_args': item['action_args']
-#     }
+    params = {
+        'action': 'download',
+        'service_name': 'subdl',
+        'action_args': item['action_args']
+    }
 
-#     if os.getenv('CI', None) is not None:
-#         time.sleep(4)
+    if os.getenv('CI', None) is not None:
+        time.sleep(4)
 
-#     filepath = a4ksubtitles_api.download(params, search.settings)
+    filepath = a4ksubtitles_api.download(params, search.settings)
 
-#     assert filepath != ''
+    assert filepath != ''
 
-# def test_subdl_tvshow_persian():
-#     a4ksubtitles_api = api.A4kSubtitlesApi({'kodi': True})
-#     __remove_all_cache(a4ksubtitles_api)
+def test_subdl_tvshow_persian():
+    a4ksubtitles_api = api.A4kSubtitlesApi({'kodi': True})
+    __remove_all_cache(a4ksubtitles_api)
 
-#     # search
-#     settings = {
-#         'subdl.enabled': 'true',
-#         'subdl.apikey': os.getenv('A4KSUBTITLES_SUBDL_APIKEY', ''),
-#     }
+    # search
+    settings = {
+        'subdl.enabled': 'true',
+        'subdl.apikey': os.getenv('A4KSUBTITLES_SUBDL_APIKEY', ''),
+    }
 
-#     if os.getenv('CI', None) is not None:
-#         time.sleep(4)
+    if os.getenv('CI', None) is not None:
+        time.sleep(4)
 
-#     search = __search_tvshow(a4ksubtitles_api, settings, {}, 'Persian')
+    search = __search_tvshow(a4ksubtitles_api, settings, {}, 'Persian')
 
-#     # download
-#     item = search.results[0]
+    # download
+    item = search.results[0]
 
-#     params = {
-#         'action': 'download',
-#         'service_name': 'subdl',
-#         'action_args': item['action_args']
-#     }
+    params = {
+        'action': 'download',
+        'service_name': 'subdl',
+        'action_args': item['action_args']
+    }
 
-#     if os.getenv('CI', None) is not None:
-#         time.sleep(4)
+    if os.getenv('CI', None) is not None:
+        time.sleep(4)
 
-#     filepath = a4ksubtitles_api.download(params, search.settings)
+    filepath = a4ksubtitles_api.download(params, search.settings)
 
-#     assert filepath != ''
+    assert filepath != ''
 
-# def test_subdl_arabic():
-#     a4ksubtitles_api = api.A4kSubtitlesApi({'kodi': True})
-#     __remove_all_cache(a4ksubtitles_api)
+def test_subdl_arabic():
+    a4ksubtitles_api = api.A4kSubtitlesApi({'kodi': True})
+    __remove_all_cache(a4ksubtitles_api)
 
-#     # search
-#     settings = {
-#         'subdl.enabled': 'true',
-#         'subdl.apikey': os.getenv('A4KSUBTITLES_SUBDL_APIKEY', ''),
-#     }
+    # search
+    settings = {
+        'subdl.enabled': 'true',
+        'subdl.apikey': os.getenv('A4KSUBTITLES_SUBDL_APIKEY', ''),
+    }
 
-#     if os.getenv('CI', None) is not None:
-#         time.sleep(4)
+    if os.getenv('CI', None) is not None:
+        time.sleep(4)
 
-#     search = __search_movie(a4ksubtitles_api, settings, {}, 'Arabic')
+    search = __search_movie(a4ksubtitles_api, settings, {}, 'Arabic')
 
-#     # download
-#     item = search.results[0]
+    # download
+    item = search.results[0]
 
-#     params = {
-#         'action': 'download',
-#         'service_name': 'subdl',
-#         'action_args': item['action_args']
-#     }
+    params = {
+        'action': 'download',
+        'service_name': 'subdl',
+        'action_args': item['action_args']
+    }
 
-#     if os.getenv('CI', None) is not None:
-#         time.sleep(4)
+    if os.getenv('CI', None) is not None:
+        time.sleep(4)
 
-#     filepath = a4ksubtitles_api.download(params, search.settings)
+    filepath = a4ksubtitles_api.download(params, search.settings)
 
-#     assert filepath != ''
+    assert filepath != ''
 
 def test_addic7ed_tvshow():
     a4ksubtitles_api = api.A4kSubtitlesApi({'kodi': True})
